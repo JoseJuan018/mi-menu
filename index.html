@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Tacos</title>
+    <style>
+        :root {
+            --primary-red: #dc2626;
+            --primary-red-hover: #b91c1c;
+            --gray-900: #111827;
+            --gray-600: #4b5563;
+            --gray-100: #f3f4f6;
+            --white: #ffffff;
+            --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.05);
+        }
+
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; line-height: 1.5; color: var(--gray-900); }
+
+
+        .menu-section { padding: 5rem 0; background: var(--white); }
+        .menu-container { max-width: 80rem; margin: auto; padding: 0 1rem; }
+
+
+        .menu-header { text-align: center; margin-bottom: 4rem; }
+        .menu-title { font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem; }
+        .menu-description { color: var(--gray-600); max-width: 42rem; margin: auto; }
+
+
+        .menu-grid { display: grid; gap: 2rem; }
+        @media (min-width: 768px) { .menu-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (min-width: 1024px) { .menu-grid { grid-template-columns: repeat(3,1fr); } }
+
+
+        .card {
+            border-radius: .5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover { box-shadow: var(--shadow-lg); }
+        .card-image-container { position: relative; height: 12rem; }
+        .card-image { width: 100%; height: 100%; object-fit: cover; }
+        .card-badge {
+            position: absolute; top: 1rem; right: 1rem;
+            background: var(--primary-red); color: var(--white);
+            padding: .25rem .5rem; border-radius: .25rem; font-size: .75rem; font-weight: 600;
+        }
+
+
+        .card-header { padding: 1.5rem 1.5rem 0; }
+        .card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: .5rem; }
+        .card-description { color: var(--gray-600); font-size: .875rem; }
+        .card-footer {
+            padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;
+            margin-top: auto;
+        }
+        .card-price { color: var(--primary-red); font-weight: 600; }
+
+
+        .btn {
+            display: inline-flex; align-items: center;
+            background: var(--primary-red); color: var(--white);
+            padding: .5rem 1rem; border-radius: .375rem; cursor: pointer;
+            transition: .2s; border: none; font-size: .875rem;
+        }
+        .btn:hover { background: var(--primary-red-hover); }
+        .btn svg { margin-right: .5rem; width: 1rem; height: 1rem; }
+
+
+        .menu-footer { margin-top: 4rem; text-align: center; }
+        .footer-badge {
+            display: inline-block; border: 1px solid var(--gray-600);
+            padding: .25rem .5rem; border-radius: .25rem; color: var(--gray-600);
+        }
+    </style>
+</head>
+<body>
+
+
+<section id="menu" class="menu-section">
+    <div class="menu-container">
+
+
+        <header class="menu-header">
+            <h2 class="menu-title">Nuestro Menú</h2>
+            <p class="menu-description">
+                Todos nuestros tacos franceses son personalizables.
+                Elige el tamaño perfecto y personalízalo con tus carnes y salsas favoritas.
+            </p>
+        </header>
+
+
+        <div class="menu-grid">
+
+
+            <!-- Taco M -->
+            <article>
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://i.postimg.cc/nr4CMRWP/taco-french-M.jpg" class="card-image">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">Taco M</h3>
+                        <p class="card-description">1 carne, 1 salsa</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">4.50€</span>
+                        <button class="btn" onclick="handleCustomize('https://i.postimg.cc/nr4CMRWP/taco-french-M.jpg','M')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Personalizar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Taco L -->
+            <article>
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://i.postimg.cc/YCqhqxxk/taco-french-L.jpg" class="card-image">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">Taco L</h3>
+                        <p class="card-description">2 carnes, 2 salsas</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">6.70€</span>
+                        <button class="btn" onclick="handleCustomize('https://i.postimg.cc/YCqhqxxk/taco-french-L.jpg','L')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Personalizar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Taco XL -->
+            <article>
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://i.postimg.cc/nhRMsQdZ/taco-french-XL.jpg" class="card-image">
+                        <span class="card-badge">Popular</span>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">Taco XL</h3>
+                        <p class="card-description">2 carnes, 2 salsas (más grande)</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">8.50€</span>
+                        <button class="btn" onclick="handleCustomize('https://i.postimg.cc/nhRMsQdZ/taco-french-XL.jpg','XL')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Personalizar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Taco XXL -->
+            <article>
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://i.postimg.cc/qvbgtCm4/taco-french-XXL.jpg" class="card-image">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">Taco XXL</h3>
+                        <p class="card-description">3 carnes, 3 salsas</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">13.90€</span>
+                        <button class="btn" onclick="handleCustomize('https://i.postimg.cc/qvbgtCm4/taco-french-XXL.jpg','XXL')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Personalizar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Gigataco -->
+            <article>
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="https://i.postimg.cc/htyhJ7Cq/taco-gigataco.jpg" class="card-image">
+                        <span class="card-badge">Popular</span>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">Gigataco</h3>
+                        <p class="card-description">4 carnes, 4 salsas</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">21.90€</span>
+                        <button class="btn" onclick="handleCustomize('https://i.postimg.cc/htyhJ7Cq/taco-gigataco.jpg','GIGA')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Personalizar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+            <div style="text-align: center; margin: 20px;">
+        <h3>¡Escanea para ver nuestro Menú!</h3>
+                <img 
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://drive.google.com/file/d/1Q4CV91UEkSirVoX9Jq14uFzYrS6PIEA0/view?usp=sharing" 
+                alt="Código QR Menú Tacos" 
+                width="100" 
+                height="100" 
+            />
+        </div>
+
+
+        </div>
+
+
+        <footer class="menu-footer">
+            <p class="menu-description">
+                Todos nuestros tacos incluyen papas fritas crujientes y queso fundido.
+            </p>
+            <span class="footer-badge">✨ Personaliza cada taco a tu gusto</span>
+        </footer>
+
+
+    </div>
+</section>
+
+
+
+
+<script>
+
+
+const tacoMenuData = {
+    'M':   { price: 4.50, description: '1 carne, 1 salsa' },
+    'L':   { price: 6.70, description: '2 carnes, 2 salsas' },
+    'XL':  { price: 8.50, description: '2 carnes, 2 salsas (más grande)' },
+    'GIGA': { price: 21.90, description: '4 carnes, 4 salsas' }
+};
+
+
+/* Función principal */
+function handleCustomize(imageURL, sizeId) {
+    const selectedTaco = tacoMenuData[sizeId];
+
+
+    if (!selectedTaco) {
+        alert("Ha ocurrido un error con este taco.");
+        return;
+    }
+
+
+    console.log("Taco Seleccionado:", selectedTaco);
+
+
+    /* Envía datos al personalizador */
+    document.dispatchEvent(new CustomEvent("tacoSelected", {
+        detail: {
+            size: sizeId,
+            price: selectedTaco.price,
+            maxMeats: sizeId === 'M' ? 1 : (sizeId === 'L' || sizeId === 'XL' ? 2 : 4),
+            maxSauces: sizeId === 'M' ? 1 : (sizeId === 'L' || sizeId === 'XL' ? 2 : 4),
+            image: imageURL
+        }
+    }));
+}
+
+
+window.handleCustomize = handleCustomize;
+</script>
+
+
+</body>
+</html>
